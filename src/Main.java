@@ -28,12 +28,28 @@ public class Main {
     double finalExam = scanner.nextDouble();
     
     long overallGrade = Math.round(
-        /*     35% weight for Homework */ 0.35 * Arrays.stream(homework).sum() / homework.length +
-            /* 15% weight for Quizzes  */ 0.15 * Arrays.stream(quizzes).sum() / quizzes.length +
+        /*     35% weight for Homework */ 0.35 * Arrays.stream(homework).average().orElse(Double.NaN) +
+            /* 15% weight for Quizzes  */ 0.15 * Arrays.stream(quizzes).average().orElse(Double.NaN) +
             /* 35% weight for Final Exm*/ 0.50 * finalExam
     
     );
     
+    System.out.printf(
+        """
+        Course name: %s
+        Weekly time spent: %s
+        Average homework grade: %.2f
+        Average quiz grade: %.2f
+        Final exam grade: %.2f
+        Overall grade: %d
+        """,
+        courseName,
+        time,
+        (float) Arrays.stream(homework).average().orElse(Double.NaN),
+        (float) Arrays.stream(quizzes).average().orElse(Double.NaN),
+        finalExam,
+        overallGrade
+    );
     
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
