@@ -35,14 +35,7 @@ public class Main {
     );
     
     System.out.printf(
-        """
-        Course name: %s
-        Weekly time spent: %s
-        Average homework grade: %.2f
-        Average quiz grade: %.2f
-        Final exam grade: %.2f
-        Overall grade: %d
-        """,
+        "Course name: %s\nWeekly time spent: %s\nAverage homework grade: %.2f\nAverage quiz grade: %.2f\nFinal exam grade: %.2f\nOverall grade: %d",
         courseName,
         time,
         (float) Arrays.stream(homework).average().orElse(Double.NaN),
