@@ -6,11 +6,13 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("What is your name?");
-    String name = scanner.nextLine();
-    System.out.println("What is your favorite number?");
-    int number = scanner.nextInt();
-    System.out.printf("Your name is %s and you like the number %d.", name, number);
+    String order = "apple pie";
+    System.out.printf("The current order is %s", order);
+    System.out.print("I want to eat something else, what do you want to eat?");
+    order = scanner.next();
+    System.out.printf("The order has changed to %s", order);
+    
+    
     
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
