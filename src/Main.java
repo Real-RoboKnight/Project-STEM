@@ -5,12 +5,9 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Enter first word:");
-    String word1 = scanner.next().toLowerCase();
-    System.out.println("Enter second word:");
-    String word2 = scanner.next().toLowerCase();
-    
-    System.out.printf("Result: %d", word1.compareTo(word2));
+    System.out.println("Enter a sentence:");
+    String word = scanner.nextLine();
+    System.out.print(word.substring(0, word.indexOf(" ")).length());
     
     
     
