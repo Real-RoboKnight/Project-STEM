@@ -4,13 +4,13 @@ public class Main {
   
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
-
-    System.out.println("Enter a string:");
-    String word = scanner.next();
-    System.out.println("How many characters would you like to delete at the end?");
-    int index = scanner.nextInt();
     
-    System.out.printf("%s", word.substring(0, word.length() - index));
+    System.out.println("Enter first word:");
+    String word1 = scanner.next().toLowerCase();
+    System.out.println("Enter second word:");
+    String word2 = scanner.next().toLowerCase();
+    
+    System.out.printf("Result: %d", word1.compareTo(word2));
     
     
     
