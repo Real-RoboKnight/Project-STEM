@@ -5,7 +5,7 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
 
-    System.out.print("\"That brain of mine is something more than merely mortal; as time will show.\"\nAda Lovelace\nThe first computer programmer");
+    System.out.print("(\\(\\\n( - -)\n((') (')");
     
     
     
