@@ -7,10 +7,10 @@ public class Main {
 
     System.out.println("Enter a string:");
     String word = scanner.next();
-    System.out.println("Enter a number:");
+    System.out.println("How many characters would you like to delete at the end?");
     int index = scanner.nextInt();
     
-    System.out.printf("%s%s", word.substring(0, index), word.substring(word.length() - index));
+    System.out.printf("%s", word.substring(0, word.length() - index));
     
     
     
