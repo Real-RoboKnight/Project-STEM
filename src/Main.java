@@ -10,7 +10,6 @@ public class Main {
     System.out.print(word.substring(0, word.indexOf(" ")).length());
     
     
-    
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
 }
