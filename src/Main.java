@@ -5,20 +5,13 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    // get first string
-    System.out.println("Enter first string");
-    String s1 =  scanner.nextLine();
-    
-    // get second string
-    System.out.println("Enter second string");
-    String s2 = scanner.nextLine();
-    
-    //Get number of letters to use from each string
-    System.out.println("Enter number of letters from each word");
-    int n = scanner.nextInt();
-    
-    // print last n letters of first string combined with first n letters of s2
-    System.out.println(s1.substring(s1.length() - n) + s2.substring(0, n));
+  
+    String str1 = scanner.nextLine();
+    String str2 = new String(str1);
+    str1 = str1.toUpperCase();
+    str2 = str2.substring(0,1).toUpperCase() + str2.substring(1);
+    System.out.println(str2);
+    System.out.println(str1);
     
     
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
