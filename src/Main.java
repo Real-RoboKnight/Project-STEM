@@ -5,11 +5,9 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Enter two test scores:");
-    double[] testScores = {scanner.nextDouble(), scanner.nextDouble()};
-    for (double test : testScores) {
-      if (test < 0 || test > 100) System.out.println("Not Valid");
-    }
+    System.out.println("Please enter an integer");
+    System.out.println( (scanner.nextInt() % 2 == 0) ? "Even" : "Odd" );
+    if (false) {} else {}
     
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
