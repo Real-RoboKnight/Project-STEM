@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;  // Import the Scanner class
 
 public class Main {
@@ -6,9 +5,9 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Please enter two numbers:");
-    double[] numbers = {scanner.nextDouble(), scanner.nextDouble()};
-    System.out.print("Smallest is: " + Math.min(numbers[1], numbers[0]));
+    System.out.println("What is your temperature?");
+    double temp = scanner.nextDouble();
+    System.out.print( (temp < 97 || temp > 99) ? "NOT NORMAL" : "");
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
 }
