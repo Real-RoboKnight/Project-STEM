@@ -6,9 +6,9 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Please enter 5 numbers:");
-    double[] numbers = {scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble()};
-    System.out.print((Arrays.stream(numbers).average().orElse(Double.NaN) >= 89.95) ? "ABOVE AVERAGE" : "");
+    System.out.println("Please enter two numbers:");
+    double[] numbers = {scanner.nextDouble(), scanner.nextDouble()};
+    System.out.print("Smallest is: " + Math.min(numbers[1], numbers[0]));
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
 }
