@@ -5,15 +5,16 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.print("Please enter the latitude: ");
-    double latitude = scanner.nextDouble();
-    System.out.print("Please enter the longitude: ");
-    double longitude = scanner.nextDouble();
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter two numbers:");
+    int a = scan.nextInt();
+    int b = scan.nextInt();
     
-    System.out.print( (-90 <= latitude && latitude <= 90) ? "" : "latitude is incorrect\n" );
-    System.out.print( (-180 <= longitude && longitude <= 180) ? "" : "longitude is incorrect\n" );
-    System.out.println( (-90 <= latitude && latitude <= 90) && (-180 <= longitude && longitude <= 180) ?
-        "The location: " + latitude + ", " + longitude : "");
+    if(( a != 0 && b == 0 || a % b != 0))
+      System.out.println(b + " is not a factor of " + a);
+    else
+      System.out.println(b + " is a factor of " + a);
+  
     
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
