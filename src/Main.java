@@ -1,19 +1,20 @@
-import java.util.Collections;
 import java.util.Scanner;  // Import the Scanner class
-import java.util.ArrayList; // import the ArrayList class
 
 public class Main {
   
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Enter the Scores:");
-     ArrayList<Integer> scores = new ArrayList<Integer>();
-     int currentScores;
-     while ((currentScores = scanner.nextInt()) != -1)
-       scores.add(currentScores);
-    System.out.println("The largest score is " + Collections.max(scores));
-
+    System.out.println("Input a word:");
+    String word = scanner.nextLine();
+    
+    int current_index = 0;
+    while (word.length() > current_index + 3) {
+      System.out.print(word.substring(current_index, current_index + 2));
+      current_index += 3;
+    }
+    System.out.println(word.substring(current_index));
+    
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
 }
