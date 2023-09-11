@@ -5,19 +5,13 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.print("Enter two numbers:\n");
-    int num1 = scanner.nextInt();
-    num1 += (num1 % 2 == 1) ? 0 : 1;
+    int n = scanner.nextInt();
     
-    int num2 = scanner.nextInt();
-    num2 += (num2 % 2 == 1) ? 0 : -1;
-    
-    System.out.println();
-    for (int i = num1; i <= num2; i+=2) {
-      System.out.print(i + " ");
+    for (int i = 0; n > 0; i++) {
+      int digit = n % 10;
+      n /= 10;
+      System.out.println(digit * (int) Math.pow(10, i));
     }
-    
-    
     
     
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
