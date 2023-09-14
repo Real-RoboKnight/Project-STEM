@@ -6,19 +6,22 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Enter a number between 0 and 50:");
+    System.out.println("Enter a positive integer:");
     int x = scanner.nextInt();
     
-    if (x <= 0 || x >= 50) {
+    if (x <= 0) {
       System.out.println("error");
       return;
     }
     
-    for (int i = x; i <= 50; i += 5) {
-      IntStream.range(i, Math.min(i + 5, 51)).forEach(value -> System.out.print(value + " "));
-      System.out.println();
-    }
-    
+    IntStream.range(0, x / 3 + 1)
+          .map(value -> -value * 3)
+          .sorted() // Inverse sort by sorting negatives, and then sign flipping
+          .map(value -> -value)
+          .forEach(value -> System.out.print(value + " "));
+    System.out.println();
+//
+    for (boolean y = false; !y; y = !y){}
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
 }
