@@ -6,24 +6,18 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Enter a string: ");
-    String input = scanner.nextLine().toLowerCase();
+    System.out.println("Enter two string: ");
+    String one = scanner.nextLine();
+    String two = scanner.nextLine();
     
-    char[] commonLetters = "etaio".toCharArray();
-    boolean containsCommomLetter;
-    
-    for (int i = 0; i < input.length(); i++) {
-      containsCommomLetter = false;
-      for (char letters : commonLetters)
-        if (input.charAt(i) == letters) {
-          containsCommomLetter = true;
-          break;
-        }
-      
-      if (!containsCommomLetter)
-        System.out.print(input.charAt(i));
+    if (one.length() != two.length()) {
+      System.out.println("error");
+      return;
     }
     
+    for (int i = one.length() - 1; i >= 0; i--) {
+      System.out.print("" + two.charAt(i) + one.charAt(i));
+    }
 
 
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
