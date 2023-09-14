@@ -6,17 +6,24 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
+    System.out.println("Enter a string: ");
     String input = scanner.nextLine().toLowerCase();
-    int p = 0;
     
-    char[] vowels = {'a', 'e', 'i', 'o', 'u'};
-    for (int i = 0; i < input.length() - 1; i++) {
-      for (char vowel : vowels)
-        if (input.substring(i, i+2).equals("p" + vowel))
-          p++;
+    char[] commonLetters = "etaio".toCharArray();
+    boolean containsCommomLetter;
+    
+    for (int i = 0; i < input.length(); i++) {
+      containsCommomLetter = false;
+      for (char letters : commonLetters)
+        if (input.charAt(i) == letters) {
+          containsCommomLetter = true;
+          break;
+        }
+      
+      if (!containsCommomLetter)
+        System.out.print(input.charAt(i));
     }
     
-    System.out.printf("Contains p followed by a vowel %d times.", p);
 
 
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
