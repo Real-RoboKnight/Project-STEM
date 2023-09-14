@@ -1,27 +1,24 @@
 import java.util.Scanner;  // Import the Scanner class
-import java.util.stream.IntStream;
+//import java.util.stream.IntStream;
 
 public class Main {
   
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Enter a positive integer:");
-    int x = scanner.nextInt();
+    String input = scanner.nextLine().toLowerCase();
+    int p = 0;
     
-    if (x <= 0) {
-      System.out.println("error");
-      return;
+    char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+    for (int i = 0; i < input.length() - 1; i++) {
+      for (char vowel : vowels)
+        if (input.substring(i, i+2).equals("p" + vowel))
+          p++;
     }
     
-    IntStream.range(0, x / 3 + 1)
-          .map(value -> -value * 3)
-          .sorted() // Inverse sort by sorting negatives, and then sign flipping
-          .map(value -> -value)
-          .forEach(value -> System.out.print(value + " "));
-    System.out.println();
-//
-    for (boolean y = false; !y; y = !y){}
+    System.out.printf("Contains p followed by a vowel %d times.", p);
+
+
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
 }
