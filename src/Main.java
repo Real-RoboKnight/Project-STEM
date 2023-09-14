@@ -6,8 +6,16 @@ public class Main {
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    for (int i = 17; i <= 73; i += 10) {
-      IntStream.range(i, i + 10 >= 73 ? 74 : i + 10).forEach(value -> System.out.print(value + " "));
+    System.out.println("Enter a number between 0 and 50:");
+    int x = scanner.nextInt();
+    
+    if (x <= 0 || x >= 50) {
+      System.out.println("error");
+      return;
+    }
+    
+    for (int i = x; i <= 50; i += 5) {
+      IntStream.range(i, Math.min(i + 5, 51)).forEach(value -> System.out.print(value + " "));
       System.out.println();
     }
     
