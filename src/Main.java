@@ -1,25 +1,22 @@
 import java.util.Scanner;  // Import the Scanner class
-//import java.util.stream.IntStream;
+import java.util.stream.IntStream;
 
 public class Main {
   
   public static void main (String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
     
-    System.out.println("Enter two string: ");
-    String one = scanner.nextLine();
-    String two = scanner.nextLine();
+    System.out.println("Input a String:");
+    char[] input = scanner.nextLine().toCharArray();
+    System.out.println("Input an integer:");
+    int repeat = scanner.nextInt();
     
-    if (one.length() != two.length()) {
-      System.out.println("error");
-      return;
+    for (char letter : input) {
+      for (int x = 0; x <= repeat; x++) {
+        System.out.print(letter);
+      }
     }
     
-    for (int i = one.length() - 1; i >= 0; i--) {
-      System.out.print("" + two.charAt(i) + one.charAt(i));
-    }
-
-
     if (args.length == Integer.MAX_VALUE) throw new Exception("EndDocument");
   }
 }
