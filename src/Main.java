@@ -11,21 +11,26 @@ public class Main {
 
 //    Algo 1:
     List<Object> AlgoOneOutput = algoOne(rawInput);
-    System.out.println(AlgoOneOutput);
+    System.out.printf("Vowels removed: %d\nRepeats removed: %d\nAlgorithm 1 message: %s\nAlgorithm 1 characters saved: %d", (int)AlgoOneOutput.get(0), (int)AlgoOneOutput.get(1), AlgoOneOutput.get(2), (int)AlgoOneOutput.get(3));
     
   }
-  
+  static Character vowelPlaceholder = '`';
   private static List<Object> algoOne (String input) {
     
-    Object[] vowelsRemoved = RemovesVowels(input).toArray();
-    int vowelCount = (int)vowelsRemoved[0];
-    
-    Object[] repeatsRemoved = RemovesRepeats((String)vowelsRemoved[1]).toArray();
-    int repeatsCount = (int)repeatsRemoved[0];
-    
-    return Arrays.asList(vowelCount, repeatsCount, repeatsRemoved[1], vowelCount + repeatsCount);
+    List<Object> vowelsRemoved = RemovesVowels(input);
+    List<Object> repeatsRemoved = RemovesRepeats((String)vowelsRemoved.get(1));
+    int vowelCount = (int)vowelsRemoved.get(0);
+    int repeatsCount = (int)repeatsRemoved.get(0);
+    String output = RemovesAllOccurrences((String) repeatsRemoved.get(1), vowelPlaceholder);
+    return Arrays.asList(vowelCount, repeatsCount, output, vowelCount + repeatsCount);
   }
   
+  /**
+   * Replaces vowels with the character vowelPlaceholder
+   *
+   * @param input the input character sequence
+   * @return the input with all vowels replaced with vowelPlaceholder
+   */
   private static List<Object> RemovesVowels (String input) {
     //    Removing Vowels
     HashSet<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
@@ -38,8 +43,10 @@ public class Main {
       vowelsRemovedStr.append(word.charAt(0));
       
       for (char letter : word.substring(1).toCharArray()) {
-        if (vowels.contains(letter)) vowelCount++;
-        else vowelsRemovedStr.append(letter);
+        if (vowels.contains(letter)) {
+          vowelCount++;
+          vowelsRemovedStr.append(vowelPlaceholder);
+        } else vowelsRemovedStr.append(letter);
       }
 
 //    Add the space back after words end
@@ -53,8 +60,13 @@ public class Main {
     int repeatsCount = 0;
     StringBuilder repeatsRemovedStr = new StringBuilder();
     for (int i = 0; i < input.length() - 1; i++)
-      if (input.charAt(i) == input.charAt(i + 1)) repeatsCount++;
+//      Dont count the vowels
+      if (input.charAt(i) == input.charAt(i + 1) && input.charAt(i) != vowelPlaceholder) repeatsCount++;
       else repeatsRemovedStr.append(input.charAt(i));
     return Arrays.asList(repeatsCount, repeatsRemovedStr.toString());
+  }
+  
+  private static String RemovesAllOccurrences (String input, Character Character) {
+    return input.replace(Character.toString(), "");
   }
 }
