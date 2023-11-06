@@ -4,23 +4,23 @@ import java.util.stream.IntStream;
 public class Main {
   
   public static void main (String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    coinConverter(scanner.nextInt());
-  }
-  
-  public static void coinConverter (int cents) {
-    System.out.printf("Dollar Bills: %d\n", cents / 100);
-    cents %= 100;
-    System.out.printf("Quarters: %d\n", cents / 25);
-    cents %= 25;
-    System.out.printf("Dimes: %d\n", cents / 10);
-    cents %= 10;
-    System.out.printf("Nickels: %d\n", cents / 5);
-    cents %= 5;
-    System.out.printf("Pennies: %d\n", cents);
-  }
-  
-  public static double distance (int x1, int y1, int x2, int y2) {
-    return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+//    Scanner scanner = new Scanner(System.in);
+    
+    Scanner scan = new Scanner(System.in);
+    
+    System.out.println("Enter the person's first name:");
+    String firstName = scan.nextLine();
+    System.out.println("Enter the person's last name:");
+    String lastName = scan.nextLine();
+    System.out.println("Enter the person's age:");
+    int age = scan.nextInt();
+    scan.nextLine();
+    System.out.println("Enter the person's social security number:");
+    String ssn = scan.nextLine();
+    
+    System.out.println();
+    Person person = new Person(firstName, lastName, age, ssn);
+    System.out.println(person);
   }
 }
+
